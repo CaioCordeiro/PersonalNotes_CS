@@ -7,7 +7,8 @@ const app = express();
 
 
 app.use((express.json()))
-app.use(cors);
+//CORS ta quebrando a aplicação, não utilizar por enquanto
+// app.use(cors);
 mongoose.connect('mongodb://localhost:27017/nodeapi', {
     useNewUrlParser: true
 });

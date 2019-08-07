@@ -9,6 +9,8 @@ routes.get("/user/alpha",UserController.showAlpha);
 routes.get("/user/:id", UserController.show);
 //Mostrar User especifico pelo 'Name'
 routes.get("/user/name/:name", UserController.showByName);
+//Mostrar User especifico pelo 'Email'
+routes.get("/user/email/:email", UserController.showByEmail);
 //Criar um User
 routes.post("/user", UserController.store);
 //Da Update em um User

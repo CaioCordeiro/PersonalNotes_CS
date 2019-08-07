@@ -25,6 +25,10 @@ module.exports = {
         const user = await User.findOne({ Name: req.params.name });
         return res.json(user);
     },
+    async showByEmail(req,res){
+        const user = await User.findOne({ Email: req.params.name });
+        return res.json(user);
+    },
     //Criar um User
     async store(req, res) {
         const user = await User.create(req.body);

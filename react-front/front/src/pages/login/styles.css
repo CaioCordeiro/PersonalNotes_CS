@@ -1,0 +1,49 @@
+* {
+	margin: 100px; 
+	padding: 100px; 
+    background: #715bd4; 
+}
+.login{
+    max-width: 700px;
+    margin: 20px auto 0;
+    padding: 0 20px;
+}
+.login p{
+    font-size: 20px;
+    justify-content: space-between;
+    width: 100px;
+    color: #ffffff;
+    border: 10px solid #715bd4;
+    border-radius: 10px;
+    margin-top: 50px;
+}
+input {
+	outline: 10px;
+    border: 10px solid #715bd4;
+    border-radius: 10px;
+    padding: 1px;
+    color: #ffffff;
+    background: #715bd4;
+}
+.login .forms{
+    background: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 100px;
+    padding: 100px;
+    margin-bottom: 20px;
+}
+.login .info{
+    background: #ffffff;
+    display: inline;
+    margin-inline: 10px;
+
+}
+.login .forms .buttom{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.login .forms .buttom {
+    background: #ffffff;
+    margin-top: 50px;
+}

@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const requireDir = require('require-dir');
-
+var multer = require('multer');
 const app = express();
 app.use((express.json()))
 
@@ -31,6 +31,11 @@ app.options('*', cors({
 app.use(cors());
 
 app.use("/api", require("./src/routes"));
+// app.use(multer({ dest: "./uploads/",
+//     rename: function (fieldname, filename) {
+//       return filename;
+//     },
+//    }));
 app.listen(3001);
 
 console.log('Foi'); 

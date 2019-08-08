@@ -1,0 +1,61 @@
+.users-list{
+    max-width: 700px;
+    margin: 20px auto 0;
+    padding: 0 20px;
+
+}
+
+.users-list article{
+    background: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.users-list article p {
+    font-size: 16px;
+    color: #999;
+    margin-top:5px;
+    line-height: 24px;
+}
+
+.users-list article a{
+    height: 42px;
+    border-radius: 5px;
+    border: 2px solid #715bd4;
+    background: #715bd4;
+    margin-top: 10px;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 15px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s;
+}
+.users-list article a:hover{
+    background: #988dc8;
+    border: 2px solid #988dc8;
+}
+.users-list .actions{
+
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+}
+.users-list .actions button{
+    padding: 10px;
+    border-radius: 5px;
+    border: 0;
+    background: #715bd4;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.users-list .actions button:hover{
+    opacity: 0.7;
+}

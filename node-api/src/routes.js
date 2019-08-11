@@ -46,5 +46,12 @@ routes.delete("/user/clear", UserController.clear);
 //Cria um Admin
 routes.post("/admin/create",AdminController.storeAdmin);
 //Check login
-routes.post("/admin/login",AdminController.showAdmin);
+routes.get("/admin/login/:Email/:Senha",AdminController.showAdmin);
+//Show all
+routes.get("/admin/",AdminController.showAll);
+//Deleta um Admin
+routes.delete("/admin/:id", AdminController.destroy);
+//Mostrar Admin especifico pelo 'Email'
+routes.get("/admin/email/:email", AdminController.showByEmail);
+routes.get("/admin/esqsenha/:Email/:Senha",AdminController.sendSenha);
 module.exports = routes;

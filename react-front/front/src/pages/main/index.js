@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import api from "../../services/api";
-import { useState } from 'react';
 import "./styles.css";
+import {Link} from 'react-router-dom';
 
 export default class Main extends Component{
     state ={
@@ -14,8 +14,6 @@ export default class Main extends Component{
     loadProducts = async ()=>{
         const response = await api.get('/user/alpha');
         this.setState({users: response.data})
-        // console.log(response.data);
-        // console.log(response.data.docs);
     };
     change = e =>{
         this.setState({
@@ -48,10 +46,10 @@ export default class Main extends Component{
 
             this.setState({users: backState.data})
         }
-        console.log(typeof response.data)
-        console.log(param.includes("@"));
-        console.log(response.data)
-        console.log(param);
+        // console.log(typeof response.data)
+        // console.log(param.includes("@"));
+        // console.log(response.data)
+        // console.log(param);
     }
 
     
@@ -72,14 +70,10 @@ export default class Main extends Component{
                         {console.log("IMAGE PATH ->"+user.UserImage)}
                         </div>
                         <p>{user.Email}</p>
-                        <a href="">Notes</a>
+                        <Link to={`/notes/${user._id}`}>Notes</Link>
 
                     </article>
                 ))}
-                {/* <div className="actions">
-                    <button onClick={this.prevPage}>Anterior </button>
-                    <button onClick={this.nextPage}>Proximo</button>
-                </div> */}
             </div>
         )
     }

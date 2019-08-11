@@ -5,7 +5,8 @@ import Header from "./components/Header";
 import Main from "./pages/main"
 import Login from "./pages/login"
 import Cadastro from "./pages/cadastro"
-
+import EsqSenha from "./pages/esqSenha"
+import Notes from "./pages/notes"
 
 import "./styles.css";
 const App = ()=>(
@@ -15,6 +16,8 @@ const App = ()=>(
     <Route path="/login" exact component={Login}/>
     <Route path="/cadastro" exact component={Cadastro}/>
     <Route path="/main" exact component={Main}/>
+    <Route path="/EsqSenha" exact component={EsqSenha}/>
+    <Route path ="/notes/:id" exact component = {Notes}/>
 
 
   </div>

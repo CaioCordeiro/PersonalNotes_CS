@@ -1,0 +1,19 @@
+.notes-info{
+    max-width: 700;
+    margin: 20px auto 0;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 5px;
+    border: 1px solid #dddddd;
+}
+.notes-info h1{
+    font-size: 32px;
+}
+.notes-info p{
+    color: #666666;
+    line-height: 24px;
+    margin-top:5px;
+}
+.notes-info p a {
+    color: #715bd4;
+}

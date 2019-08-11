@@ -1,14 +1,16 @@
 const express = require('express');
 const routes = express.Router();
 const UserController = require("./controllers/UserController");
+const AdminController = require("./controllers/AdminController");
 const multer = require('multer');
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, './uploads/');
+        cb(null, '/home/caio/Desktop/Projeto_SC/PersonalNotes_CS/react-front/front/uploads');
     },
     filename: function (req, file, cb) {
-        cb(null, file.originalname);
+        date = new Date().toISOString();
+        cb(null, date+file.originalname);
     }
 })
 const fileFilter = (req, file, cb) => {
@@ -39,4 +41,10 @@ routes.put("/user/:id", UserController.update);
 //Deleta um User
 routes.delete("/user/:id", UserController.destroy);
 
+routes.delete("/user/clear", UserController.clear);
+
+//Cria um Admin
+routes.post("/admin/create",AdminController.storeAdmin);
+//Check login
+routes.post("/admin/login",AdminController.showAdmin);
 module.exports = routes;

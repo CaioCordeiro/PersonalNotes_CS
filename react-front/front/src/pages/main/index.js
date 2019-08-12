@@ -9,16 +9,11 @@ export default class Main extends Component{
         users: [],
     }
     componentDidMount(){
-        this.loadProducts();
+        this.loadUsers();
     };
-    loadProducts = async ()=>{
+    loadUsers = async ()=>{
         const response = await api.get('/user/alpha');
         this.setState({users: response.data})
-    };
-    change = e =>{
-        this.setState({
-            [e.target.name]: e.target.value
-        });
     };
     constructor(props) {
         super(props);
@@ -40,16 +35,11 @@ export default class Main extends Component{
         // response = await api.get('/user/name/'+param);
         const backState = await api.get('/user/alpha');
         if(response.data){
-            
             Array.isArray(response.data)?this.setState({users: response.data}):this.setState({users: [response.data]})
         }else{
 
             this.setState({users: backState.data})
         }
-        // console.log(typeof response.data)
-        // console.log(param.includes("@"));
-        // console.log(response.data)
-        // console.log(param);
     }
 
     
@@ -65,9 +55,8 @@ export default class Main extends Component{
                 {this.state.users.map(user =>(
                     <article key={user._id}>
                         <div className='Upper'>
-                        <img src = {user.UserImage? require(user.UserImage): null} alt="" height="42" width="42" />
                         <strong>{user.Name}</strong>
-                        {console.log("IMAGE PATH ->"+user.UserImage)}
+                        {/* {console.log("IMAGE PATH ->"+user.UserImage)} */}
                         </div>
                         <p>{user.Email}</p>
                         <Link to={`/notes/${user._id}`}>Notes</Link>

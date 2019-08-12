@@ -6,11 +6,11 @@ const multer = require('multer');
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, '/home/caio/Desktop/Projeto_SC/PersonalNotes_CS/react-front/front/uploads');
+        cb(null, '/home/caio/Desktop/Projeto_SC/PersonalNotes_CS/react-front/front/src/pages/main/uploads');
     },
     filename: function (req, file, cb) {
         date = new Date().toISOString();
-        cb(null, date+file.originalname);
+        cb(null, req.body.Name+'.jpg');
     }
 })
 const fileFilter = (req, file, cb) => {
@@ -41,7 +41,7 @@ routes.put("/user/:id", UserController.update);
 //Deleta um User
 routes.delete("/user/:id", UserController.destroy);
 
-routes.delete("/user/clear", UserController.clear);
+routes.get("/user/clear/", UserController.deleteAll);
 
 //Cria um Admin
 routes.post("/admin/create",AdminController.storeAdmin);

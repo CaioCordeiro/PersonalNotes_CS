@@ -21,6 +21,10 @@
     padding: 0 20px;
 
 }
+img{
+    max-width: 1000px;
+    height: auto;
+}
 
 .users-list .top input {
     outline: 10px;

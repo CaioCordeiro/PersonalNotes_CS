@@ -56,7 +56,8 @@ module.exports = {
             Name: req.body.Name,
             Email: req.body.Email,
             Description: req.body.Description,
-            UserImage: req.file.path
+            UserImage: req.file.path,
+            Notes: ["Notes:"]
 
         });
         user.save().then(result => {
@@ -70,24 +71,21 @@ module.exports = {
     },
     //Da Update em um User
     async update(req, res) {
-        const user = await User.findByIdAndUpdate(req.params.id, req.body, {
-            new: true
-        });
-        return res.json(user);
+        const preUser = await User.findById(req.params.id)
+        User.findByIdAndUpdate(req.params.id,{$push:{Notes: req.body.Notes}},{new: true}).then(data=>{
+            
+            return res.json(data)
+        })
     },
     //Deleta um User
     async destroy(req, res) {
         await User.findByIdAndRemove(req.params.id);
         return res.send();
     },
-    async clear(req,res){
-       User.remove({})
-       .then( () => res.json("Clear"))
-       .catch( err => res.status(400).json('err: ' + err))
-
-    //    return res.json({
-    //        Status: true
-    //    });
+    async deleteAll(req,res){
+        const user = User.find();
+        // console.log(user);
+        return res.json(user);
     }
 
 }

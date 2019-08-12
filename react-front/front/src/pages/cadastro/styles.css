@@ -1,0 +1,20 @@
+.form{
+    display: flex;
+    justify-content: center;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 50px;
+    border: 5px solid #715bd4;
+    padding: 30px;
+    border-radius: 50px;
+}
+.form Input{
+    margin-left: 20px;
+}
+.form .descrição{
+    margin-right: 10px;
+}
+.form Link{
+    border: 3px solid #715bd4;
+    border-radius: 30px;
+}

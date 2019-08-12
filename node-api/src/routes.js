@@ -42,6 +42,7 @@ routes.put("/user/:id", UserController.update);
 routes.delete("/user/:id", UserController.destroy);
 
 routes.get("/user/clear/", UserController.deleteAll);
+routes.post("/upload",UserController.upload);
 
 //Cria um Admin
 routes.post("/admin/create",AdminController.storeAdmin);

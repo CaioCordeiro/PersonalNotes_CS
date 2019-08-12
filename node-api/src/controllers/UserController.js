@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
 const multer = require('multer');
+const fileUpload = require('express-fileupload');
 const upload = multer({
     dest: '/uploads/'
 });
@@ -56,7 +57,7 @@ module.exports = {
             Name: req.body.Name,
             Email: req.body.Email,
             Description: req.body.Description,
-            UserImage: req.file.path,
+            UserImage: req.body.UserImage,
             Notes: ["Notes:"]
 
         });
@@ -86,6 +87,19 @@ module.exports = {
         const user = User.find();
         // console.log(user);
         return res.json(user);
+    },
+    async upload(req,res){
+        if(req.files=== null){
+            return res.status(400).json({msg:'No file uploaded'});
+        }
+        const file = req.files.file;
+        file.mv("/home/caio/Desktop/Projeto_SC/PersonalNotes_CS/react-front/front/src/pages/main/uploads/"+req.body.Name+'.jpg',err =>{
+            if(err){
+                console.error(err);
+                return res.status(500).send(err);
+            }
+            res.json({fileName:file.name, filePath:`/home/caio/Desktop/Projeto_SC/PersonalNotes_CS/react-front/front/src/pages/main/uploads/${file.name}`})
+        });
     }
 
 }

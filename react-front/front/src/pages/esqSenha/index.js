@@ -18,11 +18,14 @@ export default class Login extends Component {
         });
         };
     sendEmail = async (param)=>{
+
         if(param!=''|| param !=" "){
         const response1 = await api.get("/admin/email/"+param);
-        if(response1.length){
+        console.log(response1)
+        if(response1.data){
         const pass =response1.data[0].Senha;
         const response2 = await api.get("/admin/esqsenha/"+param+'/'+pass);
+        console.log(response2);
         }
         }
     }
